@@ -59,4 +59,11 @@ publish {
     groupId = "ktlint"
     groupName = "Ktlint"
     artifact = "reporter"
+    gitUrl = "https://github.com/AlgirdasPundzius/ktlint-codequality"
+    licenses {
+        license {
+            name = "MIT"
+            url = "https://opensource.org/licenses/MIT"
+        }
+    }
 }
