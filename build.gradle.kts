@@ -1,11 +1,10 @@
-import org.jetbrains.kotlin.konan.properties.Properties
 import studio.forface.easygradle.dsl.`kotlin-test-junit`
 import studio.forface.easygradle.dsl.`kotlin-test`
 import studio.forface.easygradle.dsl.kotlin
 import studio.forface.easygradle.dsl.publish
 
 buildscript {
-    val kotlinVersion = "1.3.50"
+    val kotlinVersion = "1.3.21"
     repositories {
         mavenCentral()
         jcenter()
@@ -19,11 +18,11 @@ buildscript {
 
 plugins {
     `kotlin-dsl`
-    kotlin("jvm") version "1.3.50"
+    kotlin("jvm") version "1.3.21"
 }
 
 group = "pm.algirdas"
-version = "0.1.9"
+version = "0.2.0"
 
 repositories {
     mavenCentral()
@@ -40,20 +39,8 @@ dependencies {
     testCompile(`kotlin-test-junit`)
 }
 
-
-
 publish {
-
-    val local = Properties()
-    val localProperties: File = rootProject.file("local.properties")
-    if (localProperties.exists()) {
-        localProperties.inputStream().use { local.load(it) }
-    }
-
     projectName = null
-
-    username = local.getProperty("username")
-    apiKey = local.getProperty("apiKey")
 
     bintrayGroup = "pm.algirdas"
     groupId = "ktlint"
@@ -66,4 +53,5 @@ publish {
             url = "https://opensource.org/licenses/MIT"
         }
     }
+    override = true
 }
